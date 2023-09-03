@@ -14,6 +14,15 @@ if (!function_exists('responseApi')) {
 if (!function_exists('pagination')) {
     function pagination($paginated)
     {
+        dd([
+            'current_page' => $paginated->currentPage(),
+            'last_page' => $paginated->lastPage(),
+            'per_page' => $paginated->perPage(),
+            'total' => $paginated->total(),
+            'base_url' => $paginated->url(1),
+            'next_url' => $paginated->nextPageUrl(),
+            'prev_url' => $paginated->previousPageUrl(),
+        ]);
         try {
             return [
                 'current_page' => $paginated->currentPage(),
